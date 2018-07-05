@@ -11,9 +11,6 @@ const Sidebar= (props) => {
                     <div className="user">
                         <UserInfo user={props.user}/>
                     </div>
-                    <a href="#">
-                    <i className="fas fa-sign-out-alt"></i>
-                    </a>
                 </div>
                 <h1 style={styles.h1}>XTBC 18</h1>
                 <nav className="RoomList" style={styles.Children}>
@@ -34,7 +31,7 @@ const styles = {
     Sidebar: {
         backgroundColor: '#333344',
         color: 'rgba(255, 255, 255, 0.8)',
-        width: '12rem',
+        width: '15rem',
         padding: '1rem 0',
         display: 'flex',
         flexDirection: 'column',
