@@ -51,7 +51,9 @@ class Chat extends Component {
         return (
             <div className="Chat" style={styles}>
                 <ChatHeader />
-                <MessageList messages={this.state.messages}/>
+                <MessageList
+                messages={this.state.messages}
+                />
                 <MessageForm addMessage={this.addMessage}/>
             </div>
         )
