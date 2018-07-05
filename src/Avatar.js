@@ -16,9 +16,9 @@ const Avatar = ({user}) => {
 const styles={
     height: '40px',
     width: '40px',
-    fontSize: 'irem',
-    borderRadius: '29px',
-    marginRight: '0.Srem',
+    fontSize: '1rem',
+    borderRadius: '20px',
+    marginRight: '0.5rem',
 }
 
 export default Avatar
