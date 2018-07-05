@@ -13,7 +13,7 @@ const Avatar = (props) => {
     )
 }
 
-const style={
+const styles={
     height: '40px',
     width: '40px',
     fontSize: 'irem',
