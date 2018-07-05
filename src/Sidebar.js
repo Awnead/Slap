@@ -1,9 +1,11 @@
 import React from 'react'
 
+import UserInfo from './UserInfo'
+
 const Sidebar= (props) => {
     return (
         <div className="Sidebar">
-            {props.user.displayName}
+            <UserInfo user={props.user}/>
         </div>
     )
 }
