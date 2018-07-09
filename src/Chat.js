@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ChatHeader from './ChatHeader'
 import MessageList from './MessageList'
 import MessageForm from './MessageForm'
+import Base from './base'
 
 class Chat extends Component {
     constructor() {
@@ -10,6 +11,17 @@ class Chat extends Component {
         this.state = {
             messages: [],
         }
+    }
+
+    componentDidMount() {
+        Base.syncState(
+            'messages/general',
+            {
+                context: this,
+                state: 'messages',
+                asArray: true,
+            }
+        )
     }
 
     addMessage = (body) =>  {
