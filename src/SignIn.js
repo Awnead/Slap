@@ -1,9 +1,24 @@
 import React, {Component} from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
+import {auth, googleProvider} from './base'
+
 class SignIn extends Component{
     state = {
         email: '',
+    }
+
+    authenticate = () => {
+      auth.signInWithPopup(googleProvider)
+        .then(result => {
+          const {user} = result
+          this.props.handleAuth({
+            uid: user.uid,
+            displayName: user.displayName,
+            email: user.email,
+            photoUrl: user.photoURL,
+          })
+        })
     }
 
     handleChange = (ev) => {
@@ -30,25 +45,38 @@ class SignIn extends Component{
             </header>
             <main className={css(styles.main)}>
             <form className={css(styles.form)} onSubmit={this.handleSubmit}>
-                <label
-                 htmlFor="email"
-                 className={css(styles.label)}
-                >
-                Email
-                </label>
-                <input 
-                 autoFocus
-                 type="email"
-                 name="email"
-                 className={css(styles.input)}
-                 placeholder="Enter your email..."
-                 value = {this.state.email}
-                 onChange={this.handleChange}
-                />
-                <button type="submit" className={css(styles.button)}>
-                    Sign In
-                </button>
+              {/* <label
+                htmlFor="email"
+                className={css(styles.label)}
+              >
+              Email
+              </label>
+              <input 
+                autoFocus
+                type="email"
+                name="email"
+                className={css(styles.input)}
+                placeholder="Enter your email..."
+                value = {this.state.email}
+                onChange={this.handleChange}
+              />
+              <button
+               type="submit"
+               className={css(styles.button)}
+              >
+                  Sign In
+              </button> */}
+
+              <button
+               type="button"
+               className={css(styles.button)}
+               onClick={this.authenticate}
+              >
+              Sign in with Google
+              </button>
             </form>
+
+            
 
             <div className="blurb">
                 <h2 className={css(styles.h2)}>Building trusting relationships since 1998.</h2>
